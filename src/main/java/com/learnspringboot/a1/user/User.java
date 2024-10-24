@@ -18,7 +18,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "firstName",columnDefinition = "NVARCHAR(255)")
+    @Column(name = "firstName", columnDefinition = "NVARCHAR(255)")
     private String firstName;
     @Column(name = "lastName", columnDefinition = "NVARCHAR(255)")
     private String lastName;
@@ -29,8 +29,8 @@ public class User {
     private boolean isEnabled = false;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles",
-                joinColumns = @JoinColumn(name = "[userId]", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "[roleId]",referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "[userId]", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "[roleId]", referencedColumnName = "id"))
     private Collection<Role> roles;
 
     public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
@@ -40,4 +40,5 @@ public class User {
         this.password = password;
         this.roles = roles;
     }
+//dfsdf
 }
