@@ -18,16 +18,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "firstName",columnDefinition = "NVARCHAR(255)")
     private String firstName;
+    @Column(name = "lastName", columnDefinition = "NVARCHAR(255)")
     private String lastName;
     @NaturalId(mutable = true)
     private String email;
     private String password;
+    @Column(name = "isEnabled")
     private boolean isEnabled = false;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles",
-                joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
-                inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
+                joinColumns = @JoinColumn(name = "[userId]", referencedColumnName = "id"),
+                inverseJoinColumns = @JoinColumn(name = "[roleId]",referencedColumnName = "id"))
     private Collection<Role> roles;
 
     public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {

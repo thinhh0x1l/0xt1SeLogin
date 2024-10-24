@@ -19,37 +19,37 @@
         </div>
         <div class="m-4">User Registration Form</div>
     </div>
-    <form>
+    <form th:action="@{/registration/register}" method="post" th:object="${user}" class="px-4">
         <div class="mb-3 row">
             <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-6">
                 <input type="text"  id="firstName" class="form-control" autofocus="autofocus"
-                required name="firstName" th:field="@{firstName}">
+                required name="firstName" th:field="*{firstName}">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
             <div class="col-sm-6">
                 <input type="text"  id="lastName" class="form-control" autofocus="autofocus"
-                       required name="lastName" th:field="@{lastName}">
+                       required name="lastName" th:field="*{lastName}">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-6">
                 <input type="text"  id="email" class="form-control" autofocus="autofocus"
-                       required name="email" th:field="@{email}">
+                       required name="email" th:field="*{email}">
             </div>
         </div>
         <div class="mb-3 row">
             <label for="password" class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-6">
                 <input type="password"  id="password" class="form-control" autofocus="autofocus"
-                       required name="password" th:field="@{password}">
+                       required name="password" th:field="*{password}">
             </div>
         </div>
     <div>
-        <button type="button" class="btn btn-success">Register</button>
+        <button type="submit" class="btn btn-success">Register</button>
         <span>Registered already? <a href="/" th:href="@{authenticate/login}">Login Here</a></span>
     </div>
     </form>
